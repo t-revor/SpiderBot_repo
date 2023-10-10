@@ -12,7 +12,6 @@ module.
 There are a number of utility commands being showcased here.'''
 
 TOKEN = os.getenv('DISCORD_KEY')
-#TOKEN = 'NjYxMjc0OTMzNzQxMjIzOTYy.XgpCRg.BvcbD8jb54RDkrIHi3N7E1bMjPg'
 intents = discord.Intents.default()
 intents.members = True
 

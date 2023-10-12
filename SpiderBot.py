@@ -12,7 +12,7 @@ module.
 There are a number of utility commands being showcased here.'''
 
 TOKEN = os.getenv('DISCORD_KEY')
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members = True
 
 bot = commands.Bot(command_prefix='?', description=description, intents=intents)

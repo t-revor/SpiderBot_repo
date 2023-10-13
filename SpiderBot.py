@@ -70,8 +70,9 @@ async def repeat(ctx, times: int, content='repeating...'):
     """Repeats a message multiple times."""
     if times > 10:
         await ctx.send('Number must be lower than 10')
-    for i in range(times):
-        await ctx.send(content)
+    else:
+        for i in range(times):
+            await ctx.send(content)
 
 @bot.command()
 async def joined(ctx, member: discord.Member):

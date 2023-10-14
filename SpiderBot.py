@@ -74,7 +74,7 @@ async def repeat(ctx, times: int, content='repeating...'):
 
 @bot.command()
 async def frog(ctx):
-    await ctx.send('http://www.allaboutfrogs.org/funstuff/random/'{0}'.jpg').format(str(random.randrange(1,55)).zfill(4))
+    await ctx.send('http://www.allaboutfrogs.org/funstuff/random/{0}.jpg').format(str(random.randrange(1,55)).zfill(4))
 
 @bot.command()
 async def joined(ctx, member: discord.Member):

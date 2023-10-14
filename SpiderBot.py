@@ -4,7 +4,7 @@ import os
 import getpass
 from dotenv import load_dotenv
 import random
-
+#test hello
 load_dotenv()
 
 description = '''An example bot to showcase the discord.ext.commands extension

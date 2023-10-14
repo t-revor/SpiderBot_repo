@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import os
 import getpass
+import io
+import aiohttp
 from dotenv import load_dotenv
 import random
 
@@ -72,6 +74,15 @@ async def repeat(ctx, times: int, content='repeating...'):
         await ctx.send('Number must be lower than 10')
     for i in range(times):
         await ctx.send(content)
+
+@bot.command()
+async def frog(ctx):
+    i = random.randrange(1,55)
+    if i < 10:
+        await ctx.send("http://www.allaboutfrogs.org/funstuff/random/000"+str(i)+".jpg")
+
+    else:
+        await ctx.send("http://www.allaboutfrogs.org/funstuff/random/00"+str(i)+".jpg")
 
 @bot.command()
 async def joined(ctx, member: discord.Member):

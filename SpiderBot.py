@@ -64,6 +64,11 @@ async def choose(ctx, *choices: str):
     await ctx.send(random.choice(choices))
 
 @bot.command()
+async def coinflip(ctx):
+    """Flips a coin."""
+    await ctx.send(random.choice('headaS','tails'))
+
+@bot.command()
 async def repeat(ctx, times: int, content='repeating...'):
     """Repeats a message multiple times."""
     if times > 10:

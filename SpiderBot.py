@@ -41,22 +41,57 @@ async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
 
+#@bot.command()
+#async def roll(ctx, dice: str):
+#    """Rolls a dice in NdN format."""
+#    try:
+#        rolls, limit = map(int, dice.split('d'))
+#    except Exception:
+#        await ctx.send('Format has to be in NdN!')
+#        return
+#    if rolls > 20:
+#        await ctx.send('Please roll less dices! Max is 20 rolls.')
+#        return
+#    elif limit >100:
+#        await ctx.send('Please choose a smaller dice! Max is d100.')
+#    else:
+#        result = [random.randint(1, limit) for r in range(rolls)]
+#        await ctx.send(f'You rolled {result}, for a total of: {sum(result)}.')
+
 @bot.command()
 async def roll(ctx, dice: str):
     """Rolls a dice in NdN format."""
+    if '+' in dice:
+        dice, mod = dice.split('+')
+        mod=int(mod)
+    elif '-' in dice:
+        dice, mod = dice.split('-')
+        mod=int(mod)*-1       
+    else:
+        mod = 0
+        try:
+            rolls, limit = map(int, dice.split('d'))
+        except Exception:
+            await ctx.send('Format has to be in NdN!')
     try:
         rolls, limit = map(int, dice.split('d'))
     except Exception:
         await ctx.send('Format has to be in NdN!')
-        return
     if rolls > 20:
         await ctx.send('Please roll less dices! Max is 20 rolls.')
-        return
     elif limit >100:
         await ctx.send('Please choose a smaller dice! Max is d100.')
+    elif limit <1:
+        await ctx.send('Cannot roll less then one dice, chump!')
     else:
         result = [random.randint(1, limit) for r in range(rolls)]
-        await ctx.send(f'You rolled {result}, for a total of: {sum(result)}.')
+    
+    if mod != 0:
+        output = (f'You rolled {result}, adding {mod} for a total of: {sum(result)+mod}.')
+       
+    else:
+        output = (f'You rolled {result}, for a total of: {sum(result)}.')
+    await ctx.send(output)
 
 @bot.command()
 async def choose(ctx, *choices: str):

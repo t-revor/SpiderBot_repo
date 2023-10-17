@@ -60,7 +60,7 @@ async def add(ctx, left: int, right: int):
 
 @bot.command()
 async def roll(ctx, dice: str):
-    """Rolls a dice in NdN format."""
+    """Rolls a dice in NdN format; also allows modifiers."""
     if '+' in dice:
         dice, mod = dice.split('+')
         mod=int(mod)
@@ -69,10 +69,6 @@ async def roll(ctx, dice: str):
         mod=int(mod)*-1       
     else:
         mod = 0
-        try:
-            rolls, limit = map(int, dice.split('d'))
-        except Exception:
-            await ctx.send('Format has to be in NdN!')
     try:
         rolls, limit = map(int, dice.split('d'))
     except Exception:
@@ -114,6 +110,7 @@ async def repeat(ctx, times: int, content='repeating...'):
 
 @bot.command()
 async def frog(ctx):
+    '''Ribbit!'''
     await ctx.send('http://www.allaboutfrogs.org/funstuff/random/{0}.jpg'.format(str(random.randrange(1,55)).zfill(4)))
 
 @bot.command()

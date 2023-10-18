@@ -40,7 +40,7 @@ async def on_message(message):
 async def on_reaction_add(reaction, user):
         if not reaction.message.author.bot:
             if reaction.emoji == '<:pog:571499681637466113>':
-                await bot.add_reaction(message, emoji)
+                await bot.add_reaction('<:pog:571499681637466113>')
 
 
 @bot.command()

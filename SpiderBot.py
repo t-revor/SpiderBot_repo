@@ -36,11 +36,11 @@ async def on_message(message):
             await message.channel.send(f'Hello{random.choice(["!","!!","!!!"])}')
     await bot.process_commands(message)
 
-@bot.event
-async def on_reaction_add(message, reaction):
-    if bot.user.id != message.author.id:
-        if reaction.emoji == '<:pog:571499681637466113>':
-            await message.add_reaction('<:pog:571499681637466113>')
+#@bot.event
+#async def on_reaction_add(message, reaction):
+#    if bot.user.id != message.author.id:
+#        if reaction.emoji == '<:pog:571499681637466113>':
+#            await message.add_reaction('<:pog:571499681637466113>')
 
 
 @bot.command()

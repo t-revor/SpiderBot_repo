@@ -38,7 +38,7 @@ async def on_message(message):
 
 @bot.event
 async def on_reaction_add(reaction, message):
-    if bot.user.id != message.author.id:
+    if bot.user.id == message.author.id:
         return
     if reaction.emoji == '<:pog:571499681637466113>':
         await bot.add_reaction('<:pog:571499681637466113>')

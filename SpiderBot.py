@@ -36,27 +36,17 @@ async def on_message(message):
             await message.channel.send(f'Hello{random.choice(["!","!!","!!!"])}')
     await bot.process_commands(message)
 
+@bot.event
+async def on_reaction_add(reaction, user):
+        if not reaction.message.author.bot:
+            if reaction.emoji == '<:pog:571499681637466113>':
+                await bot.add_reaction(message, emoji)
+
+
 @bot.command()
 async def add(ctx, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(left + right)
-
-#@bot.command()
-#async def roll(ctx, dice: str):
-#    """Rolls a dice in NdN format."""
-#    try:
-#        rolls, limit = map(int, dice.split('d'))
-#    except Exception:
-#        await ctx.send('Format has to be in NdN!')
-#        return
-#    if rolls > 20:
-#        await ctx.send('Please roll less dices! Max is 20 rolls.')
-#        return
-#    elif limit >100:
-#        await ctx.send('Please choose a smaller dice! Max is d100.')
-#    else:
-#        result = [random.randint(1, limit) for r in range(rolls)]
-#        await ctx.send(f'You rolled {result}, for a total of: {sum(result)}.')
 
 @bot.command()
 async def roll(ctx, dice: str):

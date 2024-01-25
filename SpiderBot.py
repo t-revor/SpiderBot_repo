@@ -97,7 +97,8 @@ async def ball(ctx, question: str):
                     ':green_circle: Signs point to yes',':yellow_circle: Reply hazy, try again',':yellow_circle: Ask again later',':yellow_circle: Better not tell you now',
                     ':yellow_circle: Cannot predict now',':yellow_circle: Concentrate and ask again',':red_circle: Do not count on it', ':red_circle: My reply is no',
                     ':red_circle: My sources say no',':red_circle: Outlook not so good',':red_circle: Very doubtful']
-    await ctx.send(question + ':', random.choice(ball_answers))
+    reply = question + ':', random.choice(ball_answers)
+    await ctx.send(reply)
 
 @bot.command()
 async def repeat(ctx, times: int, content='repeating...'):

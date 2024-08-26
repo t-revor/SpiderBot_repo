@@ -93,7 +93,7 @@ async def coinflip(ctx):
 async def FtoC(ctx, number: int):
     """Converts Fahreneits to Celsius"""
     celsius = (number-32)*(5/9)
-    await ctx.send(celsius)
+    await ctx.send(int(celsius))
 
 @bot.command()
 async def ball(ctx, question: str):

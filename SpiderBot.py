@@ -90,6 +90,12 @@ async def coinflip(ctx):
     await ctx.send(random.choice(['headaS','tails']))
 
 @bot.command()
+async def FtoC(ctx, number: int):
+    """Converts Fahreneits to Celsius"""
+    celsius = (number-32)*(5/9)
+    await ctx.send(celsius)
+
+@bot.command()
 async def ball(ctx, question: str):
     """Magic 8 Ball."""
     ball_answers = [':green_circle: It is certain',':green_circle: It is decidedly so',':green_circle: Without a doubt',':green_circle: Yes definitely',

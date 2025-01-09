@@ -32,8 +32,8 @@ async def on_message(message):
         if ':weh:' in message.content.lower():
             await message.channel.send('<:weh:630081507796582410>')
             
-        elif 'hello' in message.content.lower():
-            await message.channel.send(f'Hello{random.choice(["!","!!","!!!"])}')
+        #elif 'hello' in message.content.lower():
+        #    await message.channel.send(f'Hello{random.choice(["!","!!","!!!"])}')
     await bot.process_commands(message)
 
 #@bot.event
